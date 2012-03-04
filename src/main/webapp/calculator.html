@@ -1,0 +1,21 @@
+<div lift="surround?with=default;at=content">
+  <h2>Akka + Lift Comet Calculator</h2>
+  <div lift="comet?type=Clock" style="text-align: left">
+    Current Time:<br /><span id="clock_time">Missing Clock</span>
+  </div>
+  <div class="lift:comet?type=CalculatorDisplay" id="calculator">
+    <form id="test">
+      <div class="span-4">
+        <p>Calculate two numbers: </p>
+        <br />
+        <p>Result: <span class="bold" id="result">0.0</span></p>
+      </div> 
+      <div class="prepend-1 span-2">
+        <input id="value_one" />
+        <input id="value_two" />
+        <input type="submit" />
+      </div>
+    </form>
+  </div>
+  
+</div>
