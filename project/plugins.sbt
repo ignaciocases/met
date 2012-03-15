@@ -6,4 +6,6 @@ addSbtPlugin("org.scala-sbt" % "sbt-closure" % "0.1.0")
 
 addSbtPlugin("me.lessis" % "less-sbt" % "0.1.9")
 
+addSbtPlugin("com.typesafe.sbteclipse" % "sbteclipse-plugin" % "2.0.0")
+
 libraryDependencies <+= sbtVersion(v => "com.github.siasia" %% "xsbt-web-plugin" % (v+"-0.2.11"))
