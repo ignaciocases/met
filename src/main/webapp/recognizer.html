@@ -1,0 +1,25 @@
+<div lift="surround?with=default;at=content">
+
+  <div lift="comet?type=Clock" style="text-align: left">
+    Current Time:<br /><span id="clock_time">Missing Clock</span>
+  </div>
+  <div class="lift:comet?type=RecognizerDisplay" id="recognizer">
+    <div>
+    <form id="test">
+      <div class="span-4">
+        <p>Enter the URL: </p>
+      </div> 
+      <div class="prepend-1 span-2">
+        <input id="url_input" />
+        <input type="submit" />
+      </div>
+    </form>
+    </div>
+    <div>
+  		<pre class="prettyprint linenums">
+        <span class="bold" id="result"></span></p>
+  		</pre>    
+    </div>
+  </div>
+  
+</div>

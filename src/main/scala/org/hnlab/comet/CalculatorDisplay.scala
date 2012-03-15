@@ -27,8 +27,6 @@ class CalculatorDisplay extends CometActor {
   val system = ActorSystem("LookupApplication", ConfigFactory.load.getConfig("remotelookup"))
   val remoteActor = system.actorFor("akka://MetaphorApplication@127.0.0.1:2552/user/simpleCalculator")
   
-  Schedule.schedule(this, AddResult, 100L) 
-  
   def doubleInput(f: Double => Any) = 
     SHtml.text("0.0", v => f(asDouble(v).openOr(0D)))
   

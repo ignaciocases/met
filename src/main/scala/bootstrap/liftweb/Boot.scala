@@ -28,6 +28,8 @@ import akka.actor.{ Actor, ActorSystem, Props => AkkaProps }
 import akka.remote.RemoteActorRefProvider
 import org.hnlab.akka._
 import com.typesafe.config.ConfigFactory
+import com.typesafe.webwords.common.WebWordsConfig
+import com.typesafe.webwords.indexer.WorkerActor
 
 /**
  * A class that's instantiated early and run.  It allows the application
@@ -125,6 +127,14 @@ class Boot extends Loggable {
       val system = ActorSystem("MetaphorApplication", ConfigFactory.load.getConfig("metaphor"))
   	  val actor = system.actorOf(AkkaProps[org.hnlab.akka.HelloWorldActor], "simpleMetaphor")
   	  val calculator = system.actorOf(AkkaProps[org.hnlab.akka.Calculator], "simpleCalculator")
+      val spider = system.actorOf(AkkaProps[com.typesafe.webwords.indexer.SpiderActor], "spider")
+      val fetcher = system.actorOf(AkkaProps[org.hnlab.metaphor.akka.FetcherActor], "fetcher")
+      val recognizer = system.actorOf(AkkaProps[org.hnlab.metaphor.akka.RecognizerActor], "recognizer")
+      
+      val mongoURL = Props.get("mongo.default.url").openOr("mongodb://localhost:27017/metaphorProject_indexer")
+
+      val worker = system.actorOf(AkkaProps(new WorkerActor(Some(mongoURL))), "index-worker")
+      
     
     } catch {
         case e:java.net.BindException => logger.debug("Bind exception")

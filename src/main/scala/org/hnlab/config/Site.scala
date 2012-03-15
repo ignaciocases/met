@@ -64,6 +64,7 @@ object Site extends Locs {
   	//capp.menu,
   	cappDebug.menu,
     Menu.i("Calculator") / "calculator",
+    Menu.i("Recognizer") / "recognizer",
     //Menu.i("About") / "about" >> TopBarGroup,
     //Menu.i("Contact") / "contact" >> TopBarGroup,
     Menu.i("Throw") / "throw" >> Hidden,
