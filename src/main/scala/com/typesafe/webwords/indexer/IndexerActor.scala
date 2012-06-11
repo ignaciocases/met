@@ -62,6 +62,9 @@ class IndexerActor
         // in a real app you'd want to profile and see if this makes sense;
         // it may well not depending on workload, number of cores, etc.
         // but it's interesting to see how to do it.
+        val bodyText = body.text
+        val metaphors = recognize(bodyText)
+        println("Body: " + bodyText)
         val words = splitWords(body.text) filter { !boring(_) }
         wordCount(words).toSeq.sortBy(0 - _._2) take 50
     }
@@ -80,6 +83,15 @@ class IndexerActor
 
 object IndexerActor {
     private val notWordRegex = """\W""".r
+
+    // Cases
+    def recognize(text: String): String = {
+        
+      
+      
+      "Recognizing"
+    }
+
 
     private[indexer] def splitWords(s: String): ParSeq[String] = {
         // ".par" is the magic that gives us a parallel algorithm

@@ -48,7 +48,7 @@ class RecognizerDisplay extends CometActor {
            this ! fetched
          }
          case _ => println("Yikes!")
-      }      
+      }
       Noop
     }) andThen SHtml.makeFormsAjax
   
